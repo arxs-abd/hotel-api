@@ -19,7 +19,7 @@ const updateRoomData = {
 
 const userData = {
     username : 'admin',
-    password : '12345678'
+    password : config.Password
 }
 
 let token

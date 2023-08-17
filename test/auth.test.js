@@ -3,6 +3,11 @@ const request = require('supertest')
 const app = require('../index')
 const config = require('../utils/config')
 
+const userData = {
+    username : 'admin',
+    password : config.Password
+}
+
 
 beforeEach(async () => {
     await mongoose.connect(config.MongoDB_url)
@@ -32,10 +37,7 @@ describe('Authentication Testing', () => {
         expect(res.body.status).toBe('fail')
     })
     it('Should Login in App', async () => {
-        const res = await request(app).post('/api/login').send({
-            username : 'admin',
-            password : '12345678'
-        })
+        const res = await request(app).post('/api/login').send(userData)
         expect(res.statusCode).toBe(200)
         expect(res.body.status).toBe('success')
         expect(typeof res.body.token).toBe('string')
