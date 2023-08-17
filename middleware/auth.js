@@ -16,8 +16,8 @@ const loginValidator = [
 ]
 
 const authenticate = (req, res, next) => {
-    const bearerToken = req.headers.authorization || req.cookies.authorization
-    const token = bearerToken?.split(' ')[1]
+    const bearerToken = req.headers.authorization
+    const token = bearerToken?.split(' ')[1] || req.cookies.authorization
     if (!token) return res.status(401).send({
         status : 'fail',
         msg : 'Token Tidak ditemukan'

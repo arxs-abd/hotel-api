@@ -10,7 +10,7 @@ const login = (req, res) => {
         msg : 'Username atau Password Salah'
     })
     const token = jwt.sign({user : 'admin'}, config.Acces_Token)
-    req.cookie('authorization', token)
+    res.cookie('authorization', token)
     return res.send({
         status : 'success',
         token
