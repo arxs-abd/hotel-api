@@ -2,10 +2,16 @@
 const Room = require('../model/room')
 
 // Function For Url GET /api/room
-const getAllRoom = (req, res) => {
+const getAllRoom = async (req, res) => {
+    const allRoom = await Room.find().catch(err => {
+        return res.status(500).send({
+            status : 'fail',
+            msg : err
+        })
+    })
     return res.status(200).send({
         status : 'success',
-        data : []
+        data : allRoom
     })
 }
 
