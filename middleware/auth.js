@@ -16,7 +16,7 @@ const loginValidator = [
 ]
 
 const authenticate = (req, res, next) => {
-    const bearerToken = req.headers.authorization
+    const bearerToken = req.headers.authorization || req.cookies.authorization
     const token = bearerToken?.split(' ')[1]
     if (!token) return res.status(401).send({
         status : 'fail',
