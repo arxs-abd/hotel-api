@@ -104,13 +104,13 @@ GET /api/room/6353b066327fac926fb26d7a
 ```
 #### Note
 
-##### For Next API must Using Headers
+##### For Next API must Using Cookie
 
 ```Javascript
 // Correct Headers
-Authorization : 'Bearer YOUR ACCESS TOKEN IN HERE'
+authorization : 'Bearer YOUR ACCESS TOKEN IN HERE'
 
-// Response With No Headers
+// Response With No Cookie
 401 UNAUTHORIZED
 {
     status : 'fail',
